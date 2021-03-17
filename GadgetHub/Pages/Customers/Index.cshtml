@@ -1,0 +1,60 @@
+﻿@page
+@model GadgetHub.Pages.Customers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerFirstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerLastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerContactNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerFirstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerLastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerContactNumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CustomerID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CustomerID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CustomerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

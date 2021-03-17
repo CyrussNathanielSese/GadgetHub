@@ -1,0 +1,54 @@
+﻿@page
+@model GadgetHub.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].EmployerFirstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].EmployerLastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].EmployerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].EmployerContactNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employees) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerFirstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerLastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployerContactNumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EmployeesID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EmployeesID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EmployeesID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
