@@ -1,5 +1,5 @@
 ﻿@page
-@model GadgetHub.Pages.Products.DetailsModel
+@model GadgetHub.Pages.Product.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -32,6 +32,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Products.productsID">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Products.ProductsID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

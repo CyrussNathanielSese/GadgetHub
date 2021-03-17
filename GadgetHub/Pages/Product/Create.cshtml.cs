@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Products
+namespace GadgetHub.Pages.Product
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace GadgetHub.Pages.Products
         }
 
         [BindProperty]
-        public Models.Products Products { get; set; }
+        public Products Products { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.

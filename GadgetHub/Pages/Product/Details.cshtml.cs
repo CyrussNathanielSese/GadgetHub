@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Products
+namespace GadgetHub.Pages.Product
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace GadgetHub.Pages.Products
             _context = context;
         }
 
-        public Models.Products Products { get; set; }
+        public Products Products { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,7 +28,7 @@ namespace GadgetHub.Pages.Products
                 return NotFound();
             }
 
-            Products = await _context.Products.FirstOrDefaultAsync(m => m.productsID == id);
+            Products = await _context.Products.FirstOrDefaultAsync(m => m.ProductsID == id);
 
             if (Products == null)
             {

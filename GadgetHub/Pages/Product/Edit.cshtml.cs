@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Products
+namespace GadgetHub.Pages.Product
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace GadgetHub.Pages.Products
         }
 
         [BindProperty]
-        public Models.Products Products { get; set; }
+        public Products Products { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,7 +30,7 @@ namespace GadgetHub.Pages.Products
                 return NotFound();
             }
 
-            Products = await _context.Products.FirstOrDefaultAsync(m => m.productsID == id);
+            Products = await _context.Products.FirstOrDefaultAsync(m => m.ProductsID == id);
 
             if (Products == null)
             {
@@ -56,7 +56,7 @@ namespace GadgetHub.Pages.Products
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductsExists(Products.productsID))
+                if (!ProductsExists(Products.ProductsID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace GadgetHub.Pages.Products
 
         private bool ProductsExists(int id)
         {
-            return _context.Products.Any(e => e.productsID == id);
+            return _context.Products.Any(e => e.ProductsID == id);
         }
     }
 }

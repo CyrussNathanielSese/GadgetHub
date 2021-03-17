@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Products
+namespace GadgetHub.Pages.Product
 {
     public class IndexModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace GadgetHub.Pages.Products
             _context = context;
         }
 
-        public IList<Models.Products> Products { get;set; }
+        public IList<Products> Products { get;set; }
 
         public async Task OnGetAsync()
         {

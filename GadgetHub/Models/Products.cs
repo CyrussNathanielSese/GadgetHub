@@ -6,7 +6,7 @@ namespace GadgetHub.Models
 {
     public class Products
     {
-        public int productsID { get; set; }
+        public int ProductsID { get; set; }
         [Display(Name = "Product Name")]
         public string ProductName { get; set; }
         [Display(Name = "Product Brand")]

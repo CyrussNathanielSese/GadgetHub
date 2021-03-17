@@ -1,5 +1,5 @@
 ﻿@page
-@model GadgetHub.Pages.Products.DeleteModel
+@model GadgetHub.Pages.Product.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -33,7 +33,7 @@
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="Products.productsID" />
+        <input type="hidden" asp-for="Products.ProductsID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

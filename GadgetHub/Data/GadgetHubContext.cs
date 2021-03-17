@@ -25,5 +25,6 @@ namespace GadgetHub.Data
             modelBuilder.Entity<Products>().ToTable("Products");
         }
         public DbSet<GadgetHub.Models.Customer> Customers { get; set; }
+        public DbSet<GadgetHub.Models.Sales> Sales { get; set; }
     }
 }

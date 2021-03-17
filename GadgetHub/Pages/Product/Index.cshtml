@@ -1,5 +1,5 @@
 ﻿@page
-@model GadgetHub.Pages.Products.IndexModel
+@model GadgetHub.Pages.Product.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.Supplier)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.productsID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.productsID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.productsID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ProductsID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProductsID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProductsID">Delete</a>
             </td>
         </tr>
 }
