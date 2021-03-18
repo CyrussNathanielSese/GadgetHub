@@ -38,8 +38,8 @@ namespace GadgetHub.Pages.Sales
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerAddress");
-           ViewData["ProductsID"] = new SelectList(_context.Products, "ProductsID", "ProductsID");
+           ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerFirstname");
+           ViewData["ProductsID"] = new SelectList(_context.Products, "ProductsID", "ProductName");
             return Page();
         }
 

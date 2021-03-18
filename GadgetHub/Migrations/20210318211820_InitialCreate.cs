@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GadgetHub.Migrations
 {
@@ -16,7 +17,7 @@ namespace GadgetHub.Migrations
                     CustomerLastname = table.Column<string>(nullable: false),
                     CustomerAddress = table.Column<string>(nullable: false),
                     Postcode = table.Column<int>(nullable: false),
-                    CustomerContactNumber = table.Column<int>(nullable: false)
+                    CustomerContactNumber = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,7 +62,8 @@ namespace GadgetHub.Migrations
                     SalesID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductsID = table.Column<int>(nullable: false),
-                    CustomerID = table.Column<int>(nullable: false)
+                    CustomerID = table.Column<int>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
