@@ -21,8 +21,8 @@ namespace GadgetHub.Pages.Sales
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerFirstname");
-        ViewData["ProductsID"] = new SelectList(_context.Products, "ProductsID", "ProductName");
+        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerAddress");
+        ViewData["ProductsID"] = new SelectList(_context.Products, "ProductsID", "ProductsID");
             return Page();
         }
 
