@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Sales
+namespace GadgetHub.Pages.SalesPage
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,13 @@ namespace GadgetHub.Pages.Sales
             _context = context;
         }
 
-        public IList<Models.Sales> Sales { get;set; }
+        public IList<Sales> Sales { get;set; }
 
         public async Task OnGetAsync()
         {
             Sales = await _context.Sales
                 .Include(s => s.Customer)
+                .Include(s => s.Employees)
                 .Include(s => s.Products).ToListAsync();
         }
     }

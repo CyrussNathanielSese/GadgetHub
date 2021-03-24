@@ -1,5 +1,5 @@
 ﻿@page
-@model GadgetHub.Pages.Sales.IndexModel
+@model GadgetHub.Pages.SalesPage.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -22,6 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Sales[0].Products)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sales[0].Employees)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -32,10 +35,13 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerFirstname)
+                @Html.DisplayFor(modelItem => item.Customer.CustomerFullname)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Products.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employees.EmployeeFullname)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.SalesID">Edit</a> |

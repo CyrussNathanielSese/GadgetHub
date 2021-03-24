@@ -17,7 +17,7 @@ namespace GadgetHub.Migrations
                     CustomerLastname = table.Column<string>(nullable: false),
                     CustomerAddress = table.Column<string>(nullable: false),
                     Postcode = table.Column<int>(nullable: false),
-                    CustomerContactNumber = table.Column<string>(nullable: false)
+                    CustomerContactNumber = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,6 +63,7 @@ namespace GadgetHub.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductsID = table.Column<int>(nullable: false),
                     CustomerID = table.Column<int>(nullable: false),
+                    EmployeesID = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -73,6 +74,12 @@ namespace GadgetHub.Migrations
                         column: x => x.CustomerID,
                         principalTable: "Customers",
                         principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Sales_Employees_EmployeesID",
+                        column: x => x.EmployeesID,
+                        principalTable: "Employees",
+                        principalColumn: "EmployeesID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Sales_Products_ProductsID",
@@ -88,6 +95,11 @@ namespace GadgetHub.Migrations
                 column: "CustomerID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Sales_EmployeesID",
+                table: "Sales",
+                column: "EmployeesID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Sales_ProductsID",
                 table: "Sales",
                 column: "ProductsID");
@@ -96,13 +108,13 @@ namespace GadgetHub.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Employees");
-
-            migrationBuilder.DropTable(
                 name: "Sales");
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Products");

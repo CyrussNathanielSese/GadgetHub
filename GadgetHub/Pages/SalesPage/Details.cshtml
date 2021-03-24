@@ -1,5 +1,5 @@
 ﻿@page
-@model GadgetHub.Pages.Sales.DetailsModel
+@model GadgetHub.Pages.SalesPage.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -21,13 +21,19 @@
             @Html.DisplayNameFor(model => model.Sales.Customer)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Sales.Customer.CustomerFirstname)
+            @Html.DisplayFor(model => model.Sales.Customer.CustomerFullname)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Sales.Products)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Sales.Products.ProductName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sales.Employees)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sales.Employees.EmployeeFullname)
         </dd>
     </dl>
 </div>

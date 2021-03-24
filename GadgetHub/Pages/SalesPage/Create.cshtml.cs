@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Sales
+namespace GadgetHub.Pages.SalesPage
 {
     public class CreateModel : PageModel
     {
@@ -21,13 +21,14 @@ namespace GadgetHub.Pages.Sales
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerFirstname");
+        ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerFullname");
+        ViewData["EmployeesID"] = new SelectList(_context.Employees, "EmployeesID", "EmployeeFullname");
         ViewData["ProductsID"] = new SelectList(_context.Products, "ProductsID", "ProductName");
             return Page();
         }
 
         [BindProperty]
-        public Models.Sales Sales { get; set; }
+        public Sales Sales { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.

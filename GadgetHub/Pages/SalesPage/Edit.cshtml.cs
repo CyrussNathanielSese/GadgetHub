@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using GadgetHub.Data;
 using GadgetHub.Models;
 
-namespace GadgetHub.Pages.Sales
+namespace GadgetHub.Pages.SalesPage
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace GadgetHub.Pages.Sales
         }
 
         [BindProperty]
-        public Models.Sales Sales { get; set; }
+        public Sales Sales { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,13 +32,15 @@ namespace GadgetHub.Pages.Sales
 
             Sales = await _context.Sales
                 .Include(s => s.Customer)
+                .Include(s => s.Employees)
                 .Include(s => s.Products).FirstOrDefaultAsync(m => m.SalesID == id);
 
             if (Sales == null)
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerFirstname");
+           ViewData["CustomerID"] = new SelectList(_context.Customer, "CustomerID", "CustomerFullname");
+           ViewData["EmployeesID"] = new SelectList(_context.Employees, "EmployeesID", "EmployeeFullname");
            ViewData["ProductsID"] = new SelectList(_context.Products, "ProductsID", "ProductName");
             return Page();
         }

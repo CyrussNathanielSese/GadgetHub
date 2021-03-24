@@ -17,14 +17,19 @@ namespace GadgetHub.Data
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Employees> Employees { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<Sales> Sales{ get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>().ToTable("Customers");
             modelBuilder.Entity<Employees>().ToTable("Employees");
             modelBuilder.Entity<Products>().ToTable("Products");
+            modelBuilder.Entity<Sales>().ToTable("Sales");
         }
-        public DbSet<GadgetHub.Models.Customer> Customers { get; set; }
-        public DbSet<GadgetHub.Models.Sales> Sales { get; set; }
+
+
+
     }
 }

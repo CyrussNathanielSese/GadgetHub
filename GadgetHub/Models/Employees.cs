@@ -8,7 +8,7 @@ namespace GadgetHub.Models
 {
     public class Employees
     {
-        
+
         public int EmployeesID { get; set; }
         [Display(Name = "First Name")]
         [Required]
@@ -23,6 +23,17 @@ namespace GadgetHub.Models
         [Required]
         [Phone]
         public string EmployerContactNumber { get; set; }
+        ICollection<Sales> Sales { get; set; }
+
+        public string EmployeeFullname
+        {
+            get
+            {
+                return EmployerFirstname + " " + EmployerLastname;
+            }
+
+        }
+
 
     }
 }

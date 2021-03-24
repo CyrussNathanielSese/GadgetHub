@@ -23,7 +23,14 @@ namespace GadgetHub.Models
         [Required]
         [Phone]
         public string CustomerContactNumber { get; set; }
+        public string CustomerFullname
+        {
+            get
+            {
+                return CustomerFirstname + " " + CustomerLastname;
+            }
 
+        }
 
     }
 }

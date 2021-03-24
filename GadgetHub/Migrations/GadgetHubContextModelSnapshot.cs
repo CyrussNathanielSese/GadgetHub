@@ -31,7 +31,6 @@ namespace GadgetHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerContactNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerFirstname")
@@ -112,12 +111,17 @@ namespace GadgetHub.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("EmployeesID")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductsID")
                         .HasColumnType("int");
 
                     b.HasKey("SalesID");
 
                     b.HasIndex("CustomerID");
+
+                    b.HasIndex("EmployeesID");
 
                     b.HasIndex("ProductsID");
 
@@ -129,6 +133,12 @@ namespace GadgetHub.Migrations
                     b.HasOne("GadgetHub.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GadgetHub.Models.Employees", "Employees")
+                        .WithMany()
+                        .HasForeignKey("EmployeesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
