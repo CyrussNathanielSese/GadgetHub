@@ -31,6 +31,7 @@ namespace GadgetHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerContactNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerFirstname")
@@ -40,9 +41,6 @@ namespace GadgetHub.Migrations
                     b.Property<string>("CustomerLastname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Postcode")
-                        .HasColumnType("int");
 
                     b.HasKey("CustomerID");
 

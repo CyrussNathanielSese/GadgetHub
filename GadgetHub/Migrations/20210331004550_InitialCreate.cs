@@ -16,8 +16,7 @@ namespace GadgetHub.Migrations
                     CustomerFirstname = table.Column<string>(nullable: false),
                     CustomerLastname = table.Column<string>(nullable: false),
                     CustomerAddress = table.Column<string>(nullable: false),
-                    Postcode = table.Column<int>(nullable: false),
-                    CustomerContactNumber = table.Column<string>(nullable: true)
+                    CustomerContactNumber = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

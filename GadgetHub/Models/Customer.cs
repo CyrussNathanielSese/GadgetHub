@@ -18,7 +18,6 @@ namespace GadgetHub.Models
         [Display(Name = "Customer Address")]
         [Required]
         public string CustomerAddress { get; set; }
-        public int Postcode { get; set; }
         [Display(Name = "Contact Number")]
         [Required]
         [Phone]

@@ -12,6 +12,5 @@ namespace GadgetHub.Models
         [Display(Name = "Product Brand")]
         public string ProductBrand { get; set; }
         public string Supplier { get; set; }
-
     }
 }

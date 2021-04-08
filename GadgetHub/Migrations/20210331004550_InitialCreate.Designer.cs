@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GadgetHub.Migrations
 {
     [DbContext(typeof(GadgetHubContext))]
-    [Migration("20210324002512_InitialCreate")]
+    [Migration("20210331004550_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,7 @@ namespace GadgetHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerContactNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerFirstname")
@@ -42,9 +43,6 @@ namespace GadgetHub.Migrations
                     b.Property<string>("CustomerLastname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Postcode")
-                        .HasColumnType("int");
 
                     b.HasKey("CustomerID");
 
